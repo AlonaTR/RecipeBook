@@ -12,9 +12,6 @@
         android:theme="@style/Theme.RecipesProject"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity2"
-            android:exported="false" />
-        <activity
             android:name=".ContentActivity"
             android:exported="false" />
         <activity
