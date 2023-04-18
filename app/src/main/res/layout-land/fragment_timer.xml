@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginRight="2dp"
+                android:fontFamily="@font/droid_sans_mono"
                 android:text="Start" />
 
             <Button
@@ -40,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="2dp"
+                android:fontFamily="@font/droid_sans_mono"
                 android:text="Stop" />
         </LinearLayout>
 
