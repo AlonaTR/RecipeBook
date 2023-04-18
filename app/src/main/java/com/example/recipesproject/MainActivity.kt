@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity(), RecipeAdapter.OnItemClickListener {
 
     private fun init() {
         binding.apply {
-            rcView.layoutManager = GridLayoutManager(this@MainActivity, 3)
+            rcView.layoutManager = GridLayoutManager(this@MainActivity, 2)
             rcView.adapter = adapter
 
 
