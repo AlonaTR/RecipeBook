@@ -15,13 +15,13 @@ class TimerFragment : Fragment() {
     private lateinit var binding: FragmentTimerBinding
     private lateinit var countDownTimer: CountDownTimer
     private var timeLeftInMillis: Long = 0
+    private var isTimerRunning = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentTimerBinding.inflate(inflater, container, false)
-
 
         binding.startButton.setOnClickListener {
             startTimer()
@@ -31,8 +31,31 @@ class TimerFragment : Fragment() {
             stopTimer()
         }
 
+        if (savedInstanceState != null) {
+            isTimerRunning = savedInstanceState.getBoolean("isTimerRunning", false)
+        }
+
         return binding.root
+
+
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean("isTimerRunning", isTimerRunning)
+    }
+
+    override fun onViewStateRestored(savedInstanceState: Bundle?) {
+        super.onViewStateRestored(savedInstanceState)
+        if (savedInstanceState != null) {
+            isTimerRunning = savedInstanceState.getBoolean("isTimerRunning", false)
+        }
+
+        if (isTimerRunning) {
+            startTimer()
+        }
+    }
+
 
     private fun startTimer() {
         val inputTime = binding.timeInput.text.toString()
@@ -56,20 +79,24 @@ class TimerFragment : Fragment() {
             override fun onTick(millisUntilFinished: Long) {
                 timeLeftInMillis = millisUntilFinished
                 updateCountDownText()
+
             }
 
             override fun onFinish() {
                 timeLeftInMillis = 0
                 updateCountDownText()
+
             }
         }.start()
+
+        isTimerRunning = true
     }
 
-
-
     private fun stopTimer() {
+
         if (::countDownTimer.isInitialized) {
             countDownTimer.cancel()
+            isTimerRunning = false
         }
         timeLeftInMillis = 0
         updateCountDownText()

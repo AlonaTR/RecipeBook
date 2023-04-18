@@ -20,7 +20,19 @@ class ContentActivity : AppCompatActivity() {
             setContentView(binding.root)
         }
 
-        supportFragmentManager.beginTransaction().add(R.id.place_holder, TimerFragment()).commit()
+//        supportFragmentManager.beginTransaction().add(R.id.place_holder, TimerFragment()).commit()
+        val timerFragment = supportFragmentManager.findFragmentByTag("timerFragment") as? TimerFragment
+
+        if (timerFragment == null) {
+            // Если фрагмент не существует, то создаем новый экземпляр и добавляем его в контейнер
+            val newTimerFragment = TimerFragment()
+            supportFragmentManager.beginTransaction().add(R.id.place_holder, newTimerFragment, "timerFragment").commit()
+        } else {
+            // Если фрагмент уже существует, то используем его
+            supportFragmentManager.beginTransaction().replace(R.id.place_holder, timerFragment, "timerFragment").commit()
+
+        }
+
 
         val item = intent.getSerializableExtra("item") as Recipe
 
@@ -47,5 +59,22 @@ class ContentActivity : AppCompatActivity() {
                 }
             }
         }
+
     }
+
+//    override fun onSaveInstanceState(outState: Bundle) {
+//        super.onSaveInstanceState(outState)
+//        val timerFragment = supportFragmentManager.findFragmentByTag("timerFragment") as? TimerFragment
+//        timerFragment?.let {
+//            supportFragmentManager.putFragment(outState, "timerFragment", it)
+//        }
+//    }
+//
+//    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+//        super.onRestoreInstanceState(savedInstanceState)
+//        val timerFragment = supportFragmentManager.getFragment(savedInstanceState, "timerFragment") as? TimerFragment
+//        timerFragment?.let {
+//            supportFragmentManager.beginTransaction().replace(R.id.place_holder, it, "timerFragment").commit()
+//        }
+//    }
 }
