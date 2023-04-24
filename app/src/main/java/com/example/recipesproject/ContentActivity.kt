@@ -34,7 +34,7 @@ class ContentActivity : AppCompatActivity() {
         }
 
 
-        val item = intent.getSerializableExtra("item") as Recipe
+        val item = intent.getSerializableExtra("item") as Data
 
         // Cast the binding to the correct type
         when (binding) {
@@ -47,6 +47,7 @@ class ContentActivity : AppCompatActivity() {
                 contentBinding.bClose.setOnClickListener {
                     finish()
                 }
+
             }
             is ActivityContentTabletBinding -> {
                 val tabletBinding = binding as ActivityContentTabletBinding

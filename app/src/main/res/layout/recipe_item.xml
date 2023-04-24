@@ -32,6 +32,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:background="@color/white"
+                android:scaleType="centerCrop"
                 app:srcCompat="@drawable/carbonara" />
 
             <TextView
@@ -47,4 +48,5 @@
                 android:textStyle="bold" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

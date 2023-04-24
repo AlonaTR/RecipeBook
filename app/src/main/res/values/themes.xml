@@ -3,6 +3,8 @@
     <style name="Theme.RecipesProject" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/apricot</item>
+<!--        text color in nav bar-->
+
         <item name="colorPrimaryVariant">@color/peach</item>
         <item name="colorOnPrimary">@color/black</item>
 <!--        text color of top bar-->

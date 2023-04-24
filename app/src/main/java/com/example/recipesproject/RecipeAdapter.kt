@@ -9,11 +9,17 @@ import com.example.recipesproject.databinding.RecipeItemBinding
 import java.util.ArrayList
 
 class RecipeAdapter(val listener: OnItemClickListener): RecyclerView.Adapter<RecipeAdapter.RecipeHolder>() {
-    val recipeList = ArrayList<Recipe>()
+    val recipeList = ArrayList<Data>()
+
+    fun update(recipes: List<Data>) {
+        recipeList.clear()
+        recipeList.addAll(recipes)
+        notifyDataSetChanged()
+    }
 
     class RecipeHolder(item: View) : RecyclerView.ViewHolder(item) {
         val binding = RecipeItemBinding.bind(item)
-        fun bind(recipe: Recipe, listener: OnItemClickListener) = with(binding) {
+        fun bind(recipe: Data, listener: OnItemClickListener) = with(binding) {
             im.setImageResource(recipe.imageId)
             tvTitle.text = recipe.title
             itemView.setOnClickListener {
@@ -35,12 +41,12 @@ class RecipeAdapter(val listener: OnItemClickListener): RecyclerView.Adapter<Rec
         holder.bind(recipeList[position], listener)
     }
 
-    fun addRecipe(recipe: Recipe){
+    fun addRecipe(recipe: Data){
         recipeList.add(recipe)
         notifyDataSetChanged()
     }
 
     interface OnItemClickListener {
-        fun onItemClick(recipe: Recipe)
+        fun onItemClick(recipe: Data)
     }
 }
