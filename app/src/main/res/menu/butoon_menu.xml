@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/welcome"
+        android:title="Welcome"
+        android:orderInCategory="1"
+        android:icon="@drawable/home"/>
+    <item
+        android:id="@+id/all"
+        android:title="All dishes"
+        android:orderInCategory="1"
+        android:icon="@drawable/all_items"/>
+
+    <item
+        android:id="@+id/main_course"
+        android:title="Main Courses"
+        android:orderInCategory="2"
+        android:icon="@drawable/main_course" />
+    <item
+        android:id="@+id/dessert"
+        android:title="Deserts"
+        android:orderInCategory="3"
+        android:icon="@drawable/dessert" />
+
+</menu>
