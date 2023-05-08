@@ -26,12 +26,14 @@ class ContentActivity : AppCompatActivity() {
         if (timerFragment == null) {
             // Если фрагмент не существует, то создаем новый экземпляр и добавляем его в контейнер
             val newTimerFragment = TimerFragment()
-            supportFragmentManager.beginTransaction().add(R.id.place_holder, newTimerFragment, "timerFragment").commit()
+            supportFragmentManager.beginTransaction().add(R.id.timer_holder, newTimerFragment, "timerFragment").commit()
         } else {
             // Если фрагмент уже существует, то используем его
-            supportFragmentManager.beginTransaction().replace(R.id.place_holder, timerFragment, "timerFragment").commit()
+            supportFragmentManager.beginTransaction().replace(R.id.timer_holder, timerFragment, "timerFragment").commit()
 
         }
+
+
 
 
         val item = intent.getSerializableExtra("item") as Data
@@ -40,13 +42,15 @@ class ContentActivity : AppCompatActivity() {
         when (binding) {
             is ActivityContentBinding -> {
                 val contentBinding = binding as ActivityContentBinding
-                contentBinding.imMain.setImageResource(item.imageId)
-                contentBinding.tvTitle.text = item.title
-                contentBinding.tvingrideints.text = item.ingridients
-                contentBinding.tvsteps.text = item.steps
+
                 contentBinding.bClose.setOnClickListener {
                     finish()
                 }
+
+                val fragment = FragmentRecipe() // создаем экземпляр фрагмента
+                val transaction = supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.frameLayout_recipe, fragment) // заменяем FrameLayout на наш фрагмент
+                transaction.commit()
 
             }
             is ActivityContentTabletBinding -> {

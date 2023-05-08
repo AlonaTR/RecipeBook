@@ -7,91 +7,26 @@
     android:background="@color/white"
     android:windowSoftInputMode="adjustPan">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+    <FrameLayout
+        android:id="@+id/frameLayout_recipe"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:background="@color/white"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/timer_holder"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/imMain"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_margin="5dp"
-            app:srcCompat="@drawable/carbonara" />
-    </androidx.cardview.widget.CardView>
+    </FrameLayout>
 
-    <androidx.cardview.widget.CardView
+    <FrameLayout
+        android:id="@+id/timer_holder"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/bClose"
-        app:layout_constraintEnd_toEndOf="@+id/cardView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/cardView"
-        app:layout_constraintTop_toBottomOf="@+id/cardView">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:orientation="vertical">
-
-            <FrameLayout
-                android:id="@+id/place_holder"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:windowSoftInputMode="adjustPan">
-
-
-            </FrameLayout>
-
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/droid_serif_bold"
-                android:gravity="center"
-                android:padding="5dp"
-                android:text="TextView"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvingrideints"
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:fontFamily="@font/droid_sans_mono"
-                android:padding="5dp"
-                android:text="TextView"
-                android:textSize="18sp" />
-
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="240dp">
-
-                <TextView
-                    android:id="@+id/tvsteps"
-                    android:layout_width="match_parent"
-                    android:layout_height="240dp"
-                    android:fadeScrollbars="false"
-                    android:fontFamily="@font/droid_sans_mono"
-                    android:text="TextView"
-                    android:textSize="18sp" />
-            </ScrollView>
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
+    </FrameLayout>
 
     <Button
         android:id="@+id/bClose"
