@@ -1,6 +1,5 @@
 package com.example.recipesproject
 
-import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -10,9 +9,10 @@ import androidx.room.RoomDatabase
 abstract class Recipes : RoomDatabase() {
     abstract fun getDao(): Dao
     companion object {
-        fun getDb(context: Context): Recipes {
+
+        fun getDb(context: FragmentMainList): Recipes {
             return Room.databaseBuilder(
-                context.applicationContext,
+                context.requireContext(),
                 Recipes::class.java,
                 "recipedata_db"
             ).build()

@@ -1,5 +1,6 @@
 package com.example.recipesproject
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewbinding.ViewBinding
@@ -44,7 +45,8 @@ class ContentActivity : AppCompatActivity() {
                 val contentBinding = binding as ActivityContentBinding
 
                 contentBinding.bClose.setOnClickListener {
-                    finish()
+                    val ingredientData = item.ingridients
+                    sendMessage(ingredientData)
                 }
 
                 val fragment = FragmentRecipe() // создаем экземпляр фрагмента
@@ -65,6 +67,13 @@ class ContentActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun sendMessage(ingredientData: String) {
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_TEXT, ingredientData)
+        startActivity(Intent.createChooser(intent, "Send Ingredient Data"))
     }
 
 //    override fun onSaveInstanceState(outState: Bundle) {

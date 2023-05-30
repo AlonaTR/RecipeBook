@@ -55,7 +55,6 @@
                 android:gravity="center"
                 android:padding="16dp"
                 android:text="Recipe Title"
-                android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textSize="29sp" />
 
             <TextView

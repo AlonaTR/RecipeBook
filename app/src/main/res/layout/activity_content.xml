@@ -36,7 +36,7 @@
         android:layout_marginRight="5dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/droid_serif_bold"
-        android:text="Close"
+        android:text="Send ingredients"
         android:textColorLink="@color/peach"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -4,11 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.recipesproject.R
 import com.example.recipesproject.databinding.RecipeItemBinding
 import java.util.ArrayList
 
-class RecipeAdapter(val listener: OnItemClickListener): RecyclerView.Adapter<RecipeAdapter.RecipeHolder>() {
+class RecipeAdapter(val listener: FragmentMainList): RecyclerView.Adapter<RecipeAdapter.RecipeHolder>() {
     val recipeList = ArrayList<Data>()
 
     fun update(recipes: List<Data>) {
